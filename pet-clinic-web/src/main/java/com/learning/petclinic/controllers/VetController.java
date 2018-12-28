@@ -7,14 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author shivaak on 27-Dec-2018
+ * @author shivaak on 28-Dec-2018
  *
  */
 @Controller
-public class IndexController {
+@RequestMapping("/vet")
+public class VetController {
 
-	@RequestMapping(value= {"","/","index","index.html"})
-	public String showIndex() {
-		return "index";
+	@RequestMapping(value= {"","/","/index","/index.html"})
+	public String showVetIndex() {
+		return "vet/vetlist";
 	}
 }
