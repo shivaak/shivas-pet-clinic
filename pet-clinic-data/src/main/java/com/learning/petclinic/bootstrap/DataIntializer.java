@@ -24,12 +24,12 @@ public class DataIntializer implements CommandLineRunner {
 	
 	private VetService vetService;
 	
-	public DataIntializer(){
-		this.ownerService = new OwnerServiceMap();
-		this.vetService = new VetServiceMap();
+	public DataIntializer(OwnerService ownerService, VetService vetService) {
+		super();
+		this.ownerService = ownerService;
+		this.vetService = vetService;
 	}
-	
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Bootstraping Data...");
