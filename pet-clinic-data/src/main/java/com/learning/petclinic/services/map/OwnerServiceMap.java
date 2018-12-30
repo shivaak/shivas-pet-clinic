@@ -7,12 +7,13 @@ import java.util.Set;
 
 import com.learning.petclinic.model.Owner;
 import com.learning.petclinic.services.CrudService;
+import com.learning.petclinic.services.OwnerService;
 
 /**
  * @author shivaak on 27-Dec-2018
  *
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Override
 	public Owner findById(Long id) {
@@ -37,6 +38,15 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 	@Override
 	public void deleteById(Long id) {
 		super.deleteById(id);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.learning.petclinic.services.OwnerService#findByLastName(java.lang.String)
+	 */
+	@Override
+	public Owner findByLastName(String lastName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

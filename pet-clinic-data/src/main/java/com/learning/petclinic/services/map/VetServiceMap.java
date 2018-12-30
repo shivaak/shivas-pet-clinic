@@ -7,12 +7,13 @@ import java.util.Set;
 
 import com.learning.petclinic.model.Vet;
 import com.learning.petclinic.services.CrudService;
+import com.learning.petclinic.services.VetService;
 
 /**
  * @author shivaak on 27-Dec-2018
  *
  */
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Override
 	public Vet findById(Long id) {
