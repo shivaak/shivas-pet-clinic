@@ -15,7 +15,7 @@ import com.learning.petclinic.services.PetService;
  *
  */
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetServiceMap extends AbstractMapService<Pet> implements PetService {
 
 	@Override
 	public Pet findById(Long id) {
@@ -24,7 +24,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 
 	@Override
 	public Pet save(Pet obj) {
-		return super.save(obj.getId(), obj);
+		return super.save(obj);
 	}
 
 	@Override

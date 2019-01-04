@@ -35,22 +35,18 @@ public class DataIntializer implements CommandLineRunner {
 		System.out.println("Bootstraping Data...");
 		
 		Owner owner1 = new Owner();
-		owner1.setId(1L);
 		owner1.setFirstName("Muruga");
 		owner1.setLastName("God");
 		
 		Owner owner2 = new Owner();
-		owner2.setId(2L);
 		owner2.setFirstName("Shiva");
 		owner2.setLastName("Krishnan");
 		
 		Vet vet1 = new Vet();
-		vet1.setId(3L);
 		vet1.setFirstName("Shankar");
 		vet1.setLastName("Perumal");
 		
 		Vet vet2 = new Vet();
-		vet2.setId(4L);
 		vet2.setFirstName("Vaidhiya");
 		vet2.setLastName("Nadhan");
 		

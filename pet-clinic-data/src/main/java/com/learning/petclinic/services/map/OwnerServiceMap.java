@@ -15,7 +15,7 @@ import com.learning.petclinic.services.OwnerService;
  *
  */
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerService {
 
 	@Override
 	public Owner findById(Long id) {
@@ -24,7 +24,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
 	@Override
 	public Owner save(Owner obj) {
-		return super.save(obj.getId(), obj);
+		return super.save(obj);
 	}
 
 	@Override

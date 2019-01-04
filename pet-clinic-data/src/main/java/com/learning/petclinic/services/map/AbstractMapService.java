@@ -6,26 +6,33 @@ package com.learning.petclinic.services.map;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
-import com.learning.petclinic.services.CrudService;
+import com.learning.petclinic.model.BaseEntity;
 
 /**
  * @author shivaak on 27-Dec-2018
  * @param <T>
  *
  */
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T extends BaseEntity> {
 
 
-	protected Map<ID, T> map = new HashMap<>();
-	
-	public T findById(ID id) {
+	protected Map<Long, T> map = new HashMap<>();
+
+	public T findById(Long id) {
 		return map.get(id);
 	}
 
-	public T save(ID id, T obj) {
-		map.put(id, obj);
+	public T save(T obj) {
+		Objects.requireNonNull(obj, "Object cannot be null");
+
+		if (obj.getId() == null) {
+			obj.setId(getNextId());
+		}
+
+		map.put(obj.getId(), obj);
 		return obj;
 	}
 
@@ -35,11 +42,18 @@ public abstract class AbstractMapService<T, ID> {
 
 	public void delete(T obj) {
 		map.entrySet()
-		   .removeIf(e -> e.getValue().equals(obj)); 
+		.removeIf(e -> e.getValue().equals(obj)); 
 	}
 
-	public void deleteById(ID id) {
+	public void deleteById(Long id) {
 		map.remove(id);
 	}
 
+	private Long getNextId() {
+		Long currentKey = map.keySet().stream()
+				.max(Long::compare)
+				.orElse(0L);
+
+		return currentKey + 1;
+	}
 }
